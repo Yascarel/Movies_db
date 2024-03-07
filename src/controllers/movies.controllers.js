@@ -38,9 +38,9 @@ const update = catchError(async(req, res) => {
 });
 const setGenresMovies = catchError (async(req, res) => {
     const { id } = req.params;
-    const genre = await Genres.findByPk(id);
-    await genre.setMovies(req.body);
-    const genres = await genre.getMovies();
+    const movie = await Movies.findByPk(id);
+    await movie.setGenres(req.body);
+    const genres = await movie.getGenres();
     return res.json(genres)
 });
 const setActorsMovies = catchError (async(req, res) => {
